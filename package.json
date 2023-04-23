@@ -1,0 +1,47 @@
+{
+  "name": "newsfeel-browser",
+  "version": "0.0.1",
+  "description": "Core puppeteer library used in the newsfeel project",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "command-line-args": "^5.1.1",
+    "html-tags": "3.2.0",
+    "command-line-usage": "^6.1.1",
+    "puppeteer": "^13.1.2",
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin": "^3.0.1",
+    "puppeteer-extra-plugin-stealth": "^2.9.0",
+    "system-sleep": "^1.3.7",
+    "winston": "^3.2.1",
+    "yaml": "^2.0.0"
+  },
+  "jest": {
+    "testMatch": [
+      "**/tests/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^28.1.1",
+    "mockdate": "^3.0.5"
+  },
+  "scripts": {
+    "launch": "node launch.js",
+    "test": "jest --collect-coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dataworks-baby/puppeteer-core.git"
+  },
+  "keywords": [
+    "puppeteer",
+    "crawling",
+    "core"
+  ],
+  "author": "Dataworks.baby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dataworks-baby/puppeteer-core/issues"
+  },
+  "homepage": "https://github.com/dataworks-baby/puppeteer-core#readme"
+}

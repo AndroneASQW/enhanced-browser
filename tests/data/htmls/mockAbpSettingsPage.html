@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<head>
+    <script type="application/javascript">
+        function onButtonClick(element) {
+            const ariaChecked = element.ariaChecked;
+            element.ariaChecked = ariaChecked == 'false' ? 'true' : 'false';
+        }
+
+        function onLinkClick(element) {
+            element.clicked = 'true';
+        }
+
+        function onFilterListAdding(element) {
+            onLinkClick(element);
+            const filterLists = document.querySelector(
+                'ul[id="all-filter-lists-table"]',
+            );
+            let newElement = document.createElement('li');
+            newElement.id = 'filter-list-3'
+            filterLists.appendChild(newElement);
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Elements for testing checkbox manipulation. -->
+    <div id="test-set-checkbox">
+        <button id="set-checkbox-true-from-true" aria-checked="true" role="checkbox" onClick="onButtonClick(this)">
+        </button> 
+        <button id="set-checkbox-true-from-false" aria-checked="false" role="checkbox" onClick="onButtonClick(this)">
+        </button> 
+        <button id="set-checkbox-false-from-true" aria-checked="true" role="checkbox" onClick="onButtonClick(this)">
+        </button> 
+        <button id="set-checkbox-false-from-false" aria-checked="false" role="checkbox" onClick="onButtonClick(this)">
+        </button> 
+    </div>
+
+    <!-- Element for testing Acceptable Ads disabling -->
+    <div id="test-acceptable-ads-disabling">
+        <button id="acceptable-ads-allow" aria-checked="true" role="checkbox" onClick="onButtonClick(this)">
+            
+        </button>
+    </div>
+
+    <!-- Element for testing anti-tracking enabling -->
+    <div id="test-anti-tracking-enabling">
+        <ul>
+            <li aria-label="Block additional tracking">
+                <button 
+                    id="additional-tracking" 
+                    aria-checked="false" 
+                    role="checkbox" 
+                    onClick="onButtonClick(this)"
+                    data-action="toggle-remove-subscription">
+                </button>
+            </li>
+            <li aria-label="Block cookie warnings">
+                <button 
+                    id="cookie-warnings" 
+                    aria-checked="false" 
+                    role="checkbox" 
+                    onClick="onButtonClick(this)"
+                    data-action="toggle-remove-subscription">
+                </button>
+            </li>
+            <li aria-label="Block push notifications">
+                <button 
+                    id="push-notifications" 
+                    aria-checked="false" 
+                    role="checkbox" 
+                    onClick="onButtonClick(this)"
+                    data-action="toggle-remove-subscription">
+                </button>
+            </li>
+            <li aria-label="Block social media icons tracking">
+                <button 
+                    id="social-media-tracking" 
+                    aria-checked="false" 
+                    role="checkbox" 
+                    onClick="onButtonClick(this)"
+                    data-action="toggle-remove-subscription">
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Element for checking going to advanced tab -->
+    <div id="test-go-to-advanced-tab">
+        <a 
+            id="tab-advanced" 
+            href="#advanced" 
+            clicked="false"
+            onclick="onLinkClick(this)">
+        </a>
+    </div>
+
+    <!-- Element testing filterlist updating -->
+    <div id="test-filter-lists-updating">
+        <button id="update" onclick="onLinkClick(this)" clicked="false"></button>
+    </div>
+
+    <!-- Element for testing filterlist adding -->
+    <div id="test-adding-filterlist"> 
+        <ul id=all-filter-lists-table>
+            <li id="filter-list-1"></li>
+            <li id="filter-list-2"></li>
+        </ul>
+        <div id="filterlist-by-url">
+            <input id="import-list-url" type="text" value="">
+            <button 
+                data-action="validate-import-subscription" 
+                id="validate-import"
+                onclick="onFilterListAdding(this)"
+                clicked="false">
+            </button>
+        </div>
+    </div>
+</body>

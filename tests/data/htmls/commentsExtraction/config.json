@@ -1,0 +1,4 @@
+{
+    "selector": "div[id^=comment-]",
+    "metaSelector": "div[id^=comment-",
+}
