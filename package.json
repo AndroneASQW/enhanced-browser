@@ -1,7 +1,7 @@
 {
-  "name": "newsfeel-browser",
+  "name": "enhanced-browser",
   "version": "0.0.1",
-  "description": "Core puppeteer library used in the newsfeel project",
+  "description": "Core puppeteer library used in the vulnerability-scanner project",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.27.2",
@@ -31,17 +31,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dataworks-baby/puppeteer-core.git"
+    "url": "git+https://github.com/AndroneASQW/enhanced-browser.git"
   },
   "keywords": [
     "puppeteer",
     "crawling",
     "core"
   ],
-  "author": "Dataworks.baby",
+  "author": "AndroneASQW",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dataworks-baby/puppeteer-core/issues"
+    "url": "https://github.com/AndroneASQW/enhanced-browser/issues"
   },
-  "homepage": "https://github.com/dataworks-baby/puppeteer-core#readme"
+  "homepage": "https://github.com/AndroneASQW/enhanced-browser#readme"
 }

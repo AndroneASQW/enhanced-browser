@@ -14,13 +14,13 @@ human-like behaviour.
   First, you need to clone this repository, we recommend doing it via `ssh`
 
   ```bash
-  git clone git@github.com:dataworks-baby/newsfeel-browser.git
+  git clone git@github.com:AndroneASQW/enhanced-browser.git
   ```
 
   Go into the directory
 
   ```bash
-  cd newsfeel-browser
+  cd enhanced-browser
   ```
 
   Install the package
@@ -49,5 +49,5 @@ You can simply do this by running:
 npm run
 ```
 
-while in the `newsfeel-browser` repository.
+while in the `enhanced-browser` repository.
 
