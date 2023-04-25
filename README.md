@@ -1,6 +1,4 @@
-# Newsfeel-browser
-
-![CI Status](https://github.com/dataworks-baby/newsfeel-browser/actions/workflows/ci.yaml/badge.svg)
+# Enhanced-browser
 
 This is an `npm` package that can be used to launch and utilize 
 a Chromium instance and makes use of `puppeteer` to simulate 

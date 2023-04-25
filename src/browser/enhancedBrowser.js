@@ -3,13 +3,13 @@ const url = require('url');
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 
-const newsfeelPage = require('../pages/newsfeelPage');
+const browserPage = require('../pages/browserPage');
 const browserErrors = require('../errors/browserErrors');
 const sleep = require('../utils/sleep');
 const adblockPlusSettings = require('../pages/adBlockPlusSettingPage');
 
 
-class NewsFeelBrowser {
+class EnhancedBrowser {
     constructor(chromeProfilePath, adBlockPlusPath) {
         this.chromium = null;
         this.chromeProfilePath = chromeProfilePath;
@@ -53,17 +53,17 @@ class NewsFeelBrowser {
     }
 
     /**
-     * Create a NewsFeelPage for a specific url.
+     * Create a BrowserPage for a specific url.
      * 
      * @param {string} url - The url of the page that should be
      *      loaded by the browser.
      * 
-     * @returns {newsfeelPage.NewsFeelPage} The resulting webpage.
+     * @returns {browserPage.BrowserPage} The resulting webpage.
      */
-    async getNewsfeelPageFor(url) {
+    async getBrowserPageFor(url) {
         let page = await this.goto(url);
 
-        return new newsfeelPage.NewsFeelPage(page);
+        return new browserPage.BrowserPage(page);
     }
 
     /**
@@ -124,4 +124,4 @@ class NewsFeelBrowser {
     }
 }
 
-module.exports = {NewsFeelBrowser};
+module.exports = {EnhancedBrowser};

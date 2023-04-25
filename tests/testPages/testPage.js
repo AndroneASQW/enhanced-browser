@@ -1,18 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 
-const nfBrowser = require('../../src/browser/newsfeelBrowser');
+const nfBrowser = require('../../src/browser/enhancedBrowser');
 const pageErrors = require('../../src/errors/pageErrors');
 
 async function executeTestInTryCatch(filePath, testCallback) {
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         'path/to/chrome/profile',
         'path/to/abp/instance',
     );
     try {
         await browser.launch(true, false, false);
         const url = `file://${filePath}`;
-        const page = await browser.getNewsfeelPageFor(url);
+        const page = await browser.getBrowserPageFor(url);
         await testCallback(page, browser);
     } finally {
         await browser.close()

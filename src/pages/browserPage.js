@@ -1,9 +1,9 @@
 const textManipulation = require('../utils/textManipulation');
 const pageErrors = require('../errors/pageErrors');
 
-class NewsFeelPage {
+class BrowserPage {
     /** 
-     * Create a new instance of `NewsFeelPage`.
+     * Create a new instance of `BrowserPage`.
      * 
      * @param {puppeteerPage.Page} puppeteerPage - Puppeteer object representing
      *  the loaded page.
@@ -331,4 +331,4 @@ class NewsFeelPage {
     }
 }
 
-module.exports = {NewsFeelPage};
+module.exports = {BrowserPage};

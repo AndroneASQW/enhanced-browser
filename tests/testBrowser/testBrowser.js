@@ -1,14 +1,14 @@
 const path = require('path');
 
-const nfBrowser = require('../../src/browser/newsfeelBrowser');
+const nfBrowser = require('../../src/browser/enhancedBrowser');
 const browserErrors = require('../../src/errors/browserErrors');
-const nfPage = require('../../src/pages/newsfeelPage');
+const nfPage = require('../../src/pages/browserPage');
 const abpSettingPage = require('../../src/pages/adBlockPlusSettingPage');
 
 jest.retryTimes(2);
 
 test('CISAFE-Test constructor works as expected', () => {
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         '/some/path/to/chrome/profile',
         '/some/path/to/adblockplus',
     );
@@ -23,13 +23,13 @@ test('CISAFE-Test constructor works as expected', () => {
 
 test('CISAFE-Test error when browser not launched', async () => {
     expect.assertions(4);
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         '/some/path/to/chrome/profile',
         '/some/path/to/adblockplus',
     );
 
     try {
-        await browser.getNewsfeelPageFor('https://www.google.com');
+        await browser.getBrowserPageFor('https://www.google.com');
     }
     catch (e) {
         expect(e.message)
@@ -50,7 +50,7 @@ test('CISAFE-Test error when browser not launched', async () => {
 });
 
 test('CISAFE-Test browser launches correctly', async () => {
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         '/some/path/to/chrome/profile',
         '/some/path/to/adblockplus',
     );
@@ -67,7 +67,7 @@ test('CISAFE-Test browser launches correctly', async () => {
 });
 
 test('CISAFE-Test browser closes correctly', async () => {
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         '/some/path/to/chrome/profile',
         '/some/path/to/adblockplus',
     );
@@ -83,7 +83,7 @@ test('CISAFE-Test browser closes correctly', async () => {
 });
 
 test('CISAFE-Test page is loaded correctly', async () => {
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         '/some/path/to/chrome/profile',
         '/some/path/to/adblockplus',
     );
@@ -94,9 +94,9 @@ test('CISAFE-Test page is loaded correctly', async () => {
     
     await browser.launch(true, false, false);
     try {
-        const page = await browser.getNewsfeelPageFor(url);
+        const page = await browser.getBrowserPageFor(url);
 
-        expect(page).toBeInstanceOf(nfPage.NewsFeelPage);
+        expect(page).toBeInstanceOf(nfPage.BrowserPage);
         expect(page.page.url()).toStrictEqual(url);
     } finally {
         await browser.close();
@@ -104,7 +104,7 @@ test('CISAFE-Test page is loaded correctly', async () => {
 });
 
 test('CISAFE-Test error when AdbockPlus is not loaded', async () => {
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         '/some/path/to/chrome/profile',
         '/some/path/to/adblockplus',
     );
@@ -126,7 +126,7 @@ test('CISAFE-Test error when AdbockPlus is not loaded', async () => {
 });
 
 test('Test load with user profile', async () => {
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         './chrome_profile',
         '/some/path/to/adblockplus',
     );
@@ -144,7 +144,7 @@ test('Test load with user profile', async () => {
 });
 
 test('Test load with ABP', async () => {
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         './chrome_profile',
         './abp-3.12',
     );
@@ -164,7 +164,7 @@ test('Test load with ABP', async () => {
 })
 
 test('Test load with UI', async () => {
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         './chrome_profile',
         './abp-3.12',
     );
@@ -180,7 +180,7 @@ test('Test load with UI', async () => {
 })
 
 test('Test getting ABP Settings page', async () => {
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         './chrome_profile',
         './abp-3.12',
     );
