@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-const newsFeelBrowser = require('../browser/newsfeelBrowser');
+const enhancedBrowser = require('../browser/enhancedBrowser');
 const sleep = require('./sleep');
-const newsFeelErrors = require('../errors/nfError');
+const browserErrors = require('../errors/nfError');
 const nfConst = require('../constants');
 
 /**
@@ -13,7 +13,7 @@ const nfConst = require('../constants');
  * one, but ABP loading fails. So we need to first ensure we have the
  * profile and then launch the browser.
  * 
- * @param {newsFeelBrowser.NewsFeelBrowser} browser - the browser used 
+ * @param {enhancedBrowser.EnhancedBrowser} browser - the browser used 
  *  to create the chrome profile, if needed.
  */
 async function ensureChromeProfileExists(browser) {
@@ -42,16 +42,16 @@ async function ensureChromeProfileExists(browser) {
  * @param {string} abpPath - Path to AdBlockPlus instance. If not existent,
  *  an error will be thrown.
  * 
- * @throws {newsFeelErrors.NewsFeelDirectoryNotFoundError} - If we cannot find
+ * @throws {browserErrors.BrowserDirectoryNotFoundError} - If we cannot find
  *  the directory specified in `abpPath`.
  */
 async function launchHeadfulBrowserWithDefaults(chromeProfile, abpPath) {
     // First, ensure that `abpPath` exists
     if (!fs.existsSync(abpPath))
-        throw new newsFeelErrors.NewsFeelDirectoryNotFoundError(abpPath);
+        throw new browserErrors.BrowserDirectoryNotFoundError(abpPath);
 
     // Initialize the browser
-    const browser = new newsFeelBrowser.NewsFeelBrowser(
+    const browser = new enhancedBrowser.EnhancedBrowser(
         chromeProfile, abpPath,
     );
 

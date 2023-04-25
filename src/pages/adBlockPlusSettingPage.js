@@ -1,7 +1,7 @@
-const newsFeelPage = require('./newsfeelPage');
+const browserPage = require('./browserPage');
 const sleep = require('../utils/sleep');
 
-class AdBlockPlusSettingsPage extends newsFeelPage.NewsFeelPage{
+class AdBlockPlusSettingsPage extends browserPage.BrowserPage{
 
     /**
      * Create a new instance of `AdBlockPlusSettingsPage`.

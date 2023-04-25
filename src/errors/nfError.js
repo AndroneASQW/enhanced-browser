@@ -1,10 +1,10 @@
-class NewsFeelError extends Error {
+class BrowserError extends Error {
     constructor (message) {
         super(message);
     }
 }
 
-class NewsFeelDirectoryNotFoundError extends NewsFeelError {
+class BrowserDirectoryNotFoundError extends BrowserError {
     constructor (path) {
         super(`Could not find directory: "${path}"!`);
         this.path = path;
@@ -12,6 +12,6 @@ class NewsFeelDirectoryNotFoundError extends NewsFeelError {
 }
 
 module.exports = {
-    NewsFeelDirectoryNotFoundError, 
-    NewsFeelError,
+    BrowserDirectoryNotFoundError, 
+    BrowserError,
 };

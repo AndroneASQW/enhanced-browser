@@ -1,6 +1,6 @@
 const { PuppeteerExtraPlugin } = require('puppeteer-extra-plugin')
 
-const newsFeelBrowser = require('./src/browser/newsfeelBrowser');
+const enhancedBrowser = require('./src/browser/enhancedBrowser');
 const launching = require('./src/utils/launching');
 const nfErrors = require('./src/errors/nfError');
 const browserErrors = require('./src/errors/browserErrors');
@@ -17,7 +17,7 @@ class Plugin extends PuppeteerExtraPlugin {
 
 
 module.exports = {
-  NewsFeelBrowser: newsFeelBrowser.NewsFeelBrowser,
+  EnhancedBrowser: enhancedBrowser.EnhancedBrowser,
   launchHeadfulBrowserDefault: launching.launchHeadfulBrowserWithDefaults,
   errors: {nfErrors, browserErrors, pageErrors},
 };

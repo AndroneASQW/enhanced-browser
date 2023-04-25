@@ -1,12 +1,12 @@
 const path = require('path');
 
 const abpSettings = require('../../src/pages/adBlockPlusSettingPage');
-const nfBrowser = require('../../src/browser/newsfeelBrowser');
+const nfBrowser = require('../../src/browser/enhancedBrowser');
 
 jest.retryTimes(2);
 
 async function runTestInTryFinally(funcToRun) {
-    const browser = new nfBrowser.NewsFeelBrowser(
+    const browser = new nfBrowser.EnhancedBrowser(
         '/some/path/to/chrome/profile',
         '/some/path/to/adblockplus',
     );
